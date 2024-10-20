@@ -70,12 +70,16 @@ try:
         n = len(U[idx])
         print(f'количество измерений: {n}')
         sampling_frequency = n / durations[idx]
+        print(f'период одного измерения: {durations[idx] / n}')
         print(f'частота дискретизации: {sampling_frequency}')
         quantization_frequency = 3.3 / 256
         print(f'шаг квантования: {quantization_frequency}')
 
         with open("//home//b03-404//Desktop//7.lab_automated_measurements//settings.txt", "w") as outfile:
-            outfile.write("\n".join([str(durations[idx]), str(sampling_frequency), str(1/sampling_frequency), str(quantization_frequency)]))
+            outfile.write("\n".join([f"длительность эксперимента: {durations[idx]}", \
+            f'период одного измерения: {durations[idx] / n}',/
+            f'частота дискретизации: {sampling_frequency}', \
+            f'шаг квантования: {quantization_frequency}']))
         
         
 
